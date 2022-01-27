@@ -1,0 +1,36 @@
+{
+    "name": "chameleon/yigim-magnet-php",
+    "license": "MIT",
+    "description": "Yigim Magnet PHP & Laravel package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hikmet Hesenov",
+            "email": "hikmet.hesenov.93@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1",
+        "illuminate/support": "~5.6 || ~5.7 || ~5.8 || ~6.0 || ~7.0 || ~8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.4 || ~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chameleon\\YigimMagnet\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chameleon\\YigimMagnet\\MagnetServiceProvider"
+            ],
+            "aliases": {
+                "Magnet": "Chameleon\\YigimMagnet\\MagnetFacade"
+            }
+        }
+    },
+    "scripts": {
+    }
+}
