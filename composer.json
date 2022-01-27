@@ -1,5 +1,5 @@
 {
-    "name": "chameleon/yigim-magnet-php",
+    "name": "chameleon/yigim-magnet",
     "license": "MIT",
     "description": "Yigim Magnet PHP & Laravel package",
     "type": "library",
