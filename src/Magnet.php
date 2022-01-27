@@ -35,12 +35,12 @@ class Magnet
     ];
 
     public const CURRENCY = [
-        'AZN' => 944,
-        'USD' => 840,
-        'EUR' => 978,
+        'AZN' => '944',
+        'USD' => '840',
+        'EUR' => '978',
     ];
 
-    public const CODE = [
+    public const STATUS_CODE = [
         'S0' => 'S0',
         'S1' => 'S1',
         'S2' => 'S2',
@@ -58,13 +58,6 @@ class Magnet
         '07' => '07',
         '08' => '08',
         '09' => '09',
-        '0'  => '0',
-        '1'  => '1',
-        '2'  => '2',
-        '3'  => '3',
-        '4'  => '4',
-        '5'  => '5',
-        '6'  => '6',
         '10' => '10',
         '20' => '20',
         '21' => '21',
@@ -75,45 +68,48 @@ class Magnet
         '30' => '30',
     ];
 
-    public const SUCCESS_CODE = [
-        self::CODE['S1'],
-        self::CODE['S4'],
-        self::CODE['S5'],
-        self::CODE['00'],
-        self::CODE['0'],
+    public const RESPONSE_CODE = [
+        '0' => '0',
+        '1' => '1',
+        '2' => '2',
+        '3' => '3',
+        '4' => '4',
+        '5' => '5',
+        '6' => '6',
     ];
 
-    public const ERROR_CODE = [
-        self::CODE['S3'],
-        self::CODE['S7'],
-        self::CODE['01'],
-        self::CODE['02'],
-        self::CODE['03'],
-        self::CODE['04'],
-        self::CODE['05'],
-        self::CODE['06'],
-        self::CODE['07'],
-        self::CODE['08'],
-        self::CODE['1'],
-        self::CODE['2'],
-        self::CODE['3'],
-        self::CODE['4'],
-        self::CODE['5'],
-        self::CODE['6'],
-        self::CODE['20'],
-        self::CODE['22'],
-        self::CODE['23'],
-        self::CODE['24'],
-        self::CODE['25'],
+    public const SUCCESS_STATUS = [
+        self::STATUS_CODE['S1'],
+        self::STATUS_CODE['S4'],
+        self::STATUS_CODE['S5'],
+        self::STATUS_CODE['00'],
     ];
 
-    public const PENDING_CODE = [
-        self::CODE['S0'],
-        self::CODE['S2'],
-        self::CODE['09'],
-        self::CODE['10'],
-        self::CODE['21'],
-        self::CODE['30'],
+    public const ERROR_STATUS = [
+        self::STATUS_CODE['S3'],
+        self::STATUS_CODE['S7'],
+        self::STATUS_CODE['01'],
+        self::STATUS_CODE['02'],
+        self::STATUS_CODE['03'],
+        self::STATUS_CODE['04'],
+        self::STATUS_CODE['05'],
+        self::STATUS_CODE['06'],
+        self::STATUS_CODE['07'],
+        self::STATUS_CODE['08'],
+        self::STATUS_CODE['20'],
+        self::STATUS_CODE['22'],
+        self::STATUS_CODE['23'],
+        self::STATUS_CODE['24'],
+        self::STATUS_CODE['25'],
+    ];
+
+    public const PENDING_STATUS = [
+        self::STATUS_CODE['S0'],
+        self::STATUS_CODE['S2'],
+        self::STATUS_CODE['09'],
+        self::STATUS_CODE['10'],
+        self::STATUS_CODE['21'],
+        self::STATUS_CODE['30'],
     ];
 
     public static function create($config): Magnet
