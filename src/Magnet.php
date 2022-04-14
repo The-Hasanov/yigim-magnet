@@ -28,6 +28,13 @@ class Magnet
         'EXTRA'       => 'extra',
     ];
 
+    public const TEMPLATE = [
+        'WEB'             => 'TPL0001',
+        'WEB_ADD_CARD'    => 'TPL0002',
+        'MOBILE'          => 'TPL0003',
+        'MOBILE_ADD_CARD' => 'TPL0004',
+    ];
+
     public const LANG = [
         'AZ' => 'az',
         'EN' => 'en',
@@ -69,14 +76,14 @@ class Magnet
     ];
 
     public const RESPONSE_CODE = [
-        'SUCCESS' => '0',
+        'SUCCESS' => '0', //OK (No error)
         '0'       => '0',
-        '1'       => '1',
-        '2'       => '2',
-        '3'       => '3',
-        '4'       => '4',
-        '5'       => '5',
-        '6'       => '6',
+        '1'       => '1',//Invalid merchant name specified (HTTP Header 'X-Merchant' value)
+        '2'       => '2',//Invalid signature specified
+        '3'       => '3',//Access denied (Merchant's IP is not in access list)
+        '4'       => '4',//Not permitted (method is not allowed for Merchant)
+        '5'       => '5',//Invalid parameter [name] specified
+        '6'       => '6',//System error
     ];
 
     public const SUCCESS_STATUS = [
@@ -199,7 +206,20 @@ class Magnet
         $response = $this->client
             ->request($method, ltrim($uri, '/'), $this->prepareOptions($options, $headers));
 
-        return json_decode($response->getBody(), true);
+        return $this->prepareResponseTypes(json_decode($response->getBody(), true));
+    }
+
+    private function prepareResponseTypes(array $response): ?array
+    {
+        if (isset($response['status'])) {
+            $response['status'] = (string)$response['status'];
+        }
+
+        if (isset($response['code'])) {
+            $response['code'] = (string)$response['code'];
+        }
+
+        return $response ?? [];
     }
 
     protected function orderParameters($parameters)
